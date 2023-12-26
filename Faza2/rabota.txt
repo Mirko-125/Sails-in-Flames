@@ -1,0 +1,83 @@
+Table igraci
+
+UserID - prim key
+DisplayName - itditd
+CurrentGame - foreign key od trenutnu igru, nista/0 ako nije u igru
+
+Table igre
+
+GameID - prim key
+Player1 - for key od prvog igraca
+Player2 - for key od drugog igraca
+GameState - 0 za inactive game, 1 za potez prvog, 2 za potez drugog
+BoardState1 - matrica/string - 0 za prazno, 1 za prazno i pogodjeno, 2 za brod, 3 za pogodjen brod
+BoardState2 - matrica/string - 0 za prazno, 1 za prazno i pogodjeno, 2 za brod, 3 za pogodjen brod
+Weapons1 - string sa preostali weapons od kec
+Weapons2 - string sa preostali weapons od dva
+
+active record :)
+
+za frontend:
+
+-grid od ui buttons, nxn, jedan clickable protivnicki i jedan tvoj evo
+-class za turn
+-signalr skripta koja je kontroler za igru, klikom na button u protivnicki grid rokas signal serveru
+-slusas za promene na signalr i menjas turn i updatujes tvoj board kad dobijes info od protivnicki turn
+
+cannonball - 0
+
+x
+
+Thunderstrike - 2
+
+x
+ x
+  x
+
+Frostbolt - 2
+
+xxx
+
+Cluster Bomb - 4
+
+x x
+ x
+x x
+
+Grapeshot - 3
+
+  x
+
+x x x
+
+  x
+
+Fireball - 3
+
+ x
+xxx
+ x
+
+Divine Pillar - 7
+
+x
+x
+x
+x
+x
+x
+x
+x
+
+Annihilator - 10
+
+ xxx
+xxxxx
+xxxxx
+xxxxx
+ xxx
+
+Minigun - 7
+
+x  x   x
+ xx xxx x
