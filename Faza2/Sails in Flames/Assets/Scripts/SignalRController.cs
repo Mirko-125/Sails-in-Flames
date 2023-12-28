@@ -35,4 +35,9 @@ public sealed class SignalRController
         };
         Debug.Log($"{turn.Player},{turn.WeaponName},{turn.BoardX},{turn.BoardY}");
     }
+    public void ReceiveSignalR(Turn turn) // nisam siguran da ovako treba
+    {
+        Debug.Log($"{turn.Player},{turn.WeaponName},{turn.BoardX},{turn.BoardY}");
+        // _tiles
+    }
 }
