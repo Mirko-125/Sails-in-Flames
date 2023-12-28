@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "AzVA31peSTJN8aU6aNq8Wl9l+HGwsjJThvyp0rwycO4=",
+  "Source": "SailsServer",
+  "BasePath": "_content/SailsServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
