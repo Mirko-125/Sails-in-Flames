@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
@@ -34,12 +35,12 @@ public class MenuButtons : MonoBehaviour
 
     public void GameSettings()
     {
-
+        SceneManager.LoadScene(2);
     }
 
     public void GameExtras()
     {
-
+        Debug.Log("Ovo Boggy i Mirko pravili");
     }
     public void QuitGame()
     {
