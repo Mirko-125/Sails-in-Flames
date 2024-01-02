@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] private GameObject menuButtons;
+    [SerializeField] private GameObject credits;
     private bool foundPlayer;
     void Start()
     {
@@ -41,9 +43,18 @@ public class MenuButtons : MonoBehaviour
     public void GameExtras()
     {
         Debug.Log("Ovo Boggy i Mirko pravili");
+        menuButtons.SetActive(false);
+        credits.SetActive(true);
+    }
+
+    public void CloseExtras()
+    {
+        credits.SetActive(false);
+        menuButtons.SetActive(true);
     }
     public void QuitGame()
     {
+        Debug.Log("Exited.");
         Application.Quit();
     }
 }
