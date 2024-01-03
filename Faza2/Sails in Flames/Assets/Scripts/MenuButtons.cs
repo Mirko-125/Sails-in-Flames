@@ -6,10 +6,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
-{
-    // Start is called before the first frame update
+{  
+    [SerializeField] private AudioSource sound;
+    [SerializeField] private AudioClip soundFile;
     [SerializeField] private GameObject menuButtons;
+    [SerializeField] private GameObject lobby;
     [SerializeField] private GameObject credits;
+    // Start is called before the first frame update
     private bool foundPlayer;
     void Start()
     {
@@ -23,20 +26,36 @@ public class MenuButtons : MonoBehaviour
 
     public void PlayGame()
     {
-        foundPlayer = false;
-        while(!foundPlayer)
-        {
-            Debug.Log("Čeka igrača");
-            foundPlayer = true;
-        }
+        foundPlayer = false; // mozda u konstruktor da ubacim?
         // string buttonName = this.name;
         // string buttonNumber = Regex.Replace(buttonName, @"[^\d]", "");
         // int sceneNumber = int.Parse(buttonNumber) + 1;
+        sound.Play();
+        StartCoroutine(_PlayGame(foundPlayer));
+    }
+
+    private IEnumerator _PlayGame(bool foundPlayer)
+    {
+        yield return new WaitForSeconds(soundFile.length);
+        lobby.SetActive(true);
+        while(!foundPlayer)
+        {
+            // mora da bude bolje napravljeno
+            Debug.Log("Čeka igrača");
+            foundPlayer = true;
+        }
         SceneManager.LoadScene(1);
     }
 
     public void GameSettings()
     {
+        sound.Play();
+        StartCoroutine(_GameSettings());
+    }
+
+    private IEnumerator _GameSettings()
+    {
+        yield return new WaitForSeconds(soundFile.length);
         SceneManager.LoadScene(2);
     }
 

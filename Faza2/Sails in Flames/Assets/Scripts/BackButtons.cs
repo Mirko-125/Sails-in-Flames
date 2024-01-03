@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BackButtons : MonoBehaviour
 {
+    [SerializeField] private AudioSource sound;
+    [SerializeField] private AudioClip soundFile;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject question;
     // Start is called before the first frame update
@@ -28,9 +30,14 @@ public class BackButtons : MonoBehaviour
 
     public void GoBackToMenu()
     {
+        sound.Play();
+        StartCoroutine(_GoBackToMenu());
+    }
+    private IEnumerator _GoBackToMenu()
+    {
+        yield return new WaitForSeconds(soundFile.length);
         SceneManager.LoadScene(0);
     }
-
     public void LeaveGameMenu()
     {
         question.SetActive(true);
