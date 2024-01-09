@@ -47,6 +47,19 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ConfirmRoundTwo()
+    {
+        // ovde nam treba logika da ceka igraca
+        sound.Play();
+        StartCoroutine(_ConfirmRoundTwo());
+    }
+
+    private IEnumerator _ConfirmRoundTwo()
+    {
+        yield return new WaitForSeconds(soundFile.length);
+        SceneManager.LoadScene(2);
+    }
+
     public void GameSettings()
     {
         sound.Play();
@@ -56,7 +69,7 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator _GameSettings()
     {
         yield return new WaitForSeconds(soundFile.length);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     public void GameExtras()

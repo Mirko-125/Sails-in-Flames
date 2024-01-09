@@ -374,13 +374,15 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/BackButtons.cs"
-"Assets/Scripts/GameplayActual.cs"
+"Assets/Scripts/DragAndDrop.cs"
 "Assets/Scripts/GridManager.cs"
 "Assets/Scripts/MenuButtons.cs"
+"Assets/Scripts/ShopLogic.cs"
 "Assets/Scripts/SignalRController.cs"
 "Assets/Scripts/SignalRReciever.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/Turn.cs"
+"Assets/Scripts/TypewriterUI.cs"
 -langversion:9.0
 
 /deterministic

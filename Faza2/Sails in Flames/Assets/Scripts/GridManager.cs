@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ProjectWindowCallback;
 using UnityEngine;
+using UnityEngine.SceneManagement;
  
 public class GridManager : MonoBehaviour 
 {
@@ -21,7 +22,10 @@ public class GridManager : MonoBehaviour
     void Start() 
     {
         GenerateGrid(true);
-        GenerateGrid(false);
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            GenerateGrid(false);
+        }
         _cam.transform.position = new Vector3((float)(_width) / 2 + 3.5f, (float)_height / 2, _camDistance);
     }
  
