@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Security.Cryptography;
+using CommsFunctions;
 
 public class MenuButtons : MonoBehaviour
 {  
@@ -16,7 +18,7 @@ public class MenuButtons : MonoBehaviour
     private bool foundPlayer;
     void Start()
     {
-        
+
     }
     // Update is called once per frame
     void Update()

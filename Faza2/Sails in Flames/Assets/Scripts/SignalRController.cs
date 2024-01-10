@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using Unity.VisualScripting;
-// using Microsoft.AspNetCore.Mvc;
-// using Microsoft.AspNetCore.SignalR;
 public sealed class SignalRController
 {
     private SignalRController()

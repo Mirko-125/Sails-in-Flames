@@ -59,21 +59,25 @@
     <UnityVersion>2022.3.15f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\Mirko\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Mirko\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.4\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SignalRController.cs" />
     <Compile Include="Assets\Scripts\Turn.cs" />
+    <Compile Include="Assets\Scripts\MapSlot.cs" />
+    <Compile Include="Assets\Scripts\DraggableItem.cs" />
+    <Compile Include="Assets\Scripts\Games.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\TypewriterUI.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\SignalRReciever.cs" />
+    <Compile Include="Assets\Scripts\Comms.cs" />
+    <Compile Include="Assets\Scripts\Metadata.cs" />
     <Compile Include="Assets\Scripts\ShopLogic.cs" />
     <Compile Include="Assets\Scripts\BackButtons.cs" />
     <Compile Include="Assets\Scripts\MenuButtons.cs" />
-    <Compile Include="Assets\Scripts\DragAndDrop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
