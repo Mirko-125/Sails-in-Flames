@@ -22,7 +22,7 @@ public class GridManager : MonoBehaviour
     void Start() 
     {
         GenerateGrid(true);
-        if(SceneManager.GetActiveScene().buildIndex == 3)
+        if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             GenerateGrid(false);
         }

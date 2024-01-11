@@ -18,7 +18,7 @@ public class BackButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
+        if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -36,7 +36,7 @@ public class BackButtons : MonoBehaviour
     private IEnumerator _GoBackToMenu()
     {
         yield return new WaitForSeconds(soundFile.length);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void LeaveGameMenu()
     {

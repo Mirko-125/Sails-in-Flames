@@ -1,9 +1,9 @@
 using UnityEngine;
-//using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.AspNetCore.SignalR.Client;
 
 public class SignalRReceiver : MonoBehaviour
 {
-    /*
+
     private HubConnection hubConnection;
 
     void Start()
@@ -19,5 +19,4 @@ public class SignalRReceiver : MonoBehaviour
     {
         hubConnection.StopAsync();
     }
-    */
 }

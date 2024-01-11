@@ -46,7 +46,7 @@ public class MenuButtons : MonoBehaviour
             Debug.Log("Čeka igrača");
             foundPlayer = true;
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void ConfirmRoundTwo()
@@ -59,7 +59,7 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator _ConfirmRoundTwo()
     {
         yield return new WaitForSeconds(soundFile.length);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void GameSettings()
@@ -71,7 +71,7 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator _GameSettings()
     {
         yield return new WaitForSeconds(soundFile.length);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 
     public void GameExtras()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.AspNetCore.SignalR;
 
 namespace CommsFunctions
 {    
@@ -8,7 +9,7 @@ namespace CommsFunctions
     {
         public void ConnectAs(string user)
         {
-
+            
         }
 
         public void ConnectId(string id)
