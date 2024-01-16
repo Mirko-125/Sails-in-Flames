@@ -2801,7 +2801,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello there general! The enemy fleet is using Thunderbolt, \nwatch yourself!"
+  m_text: "Salutations admiral! The enemy fleet is using Thunderbolt, \nwatch yourself!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55a5414d571b99443b7effd91fe65982, type: 2}
   m_sharedMaterial: {fileID: 8037327244503510830, guid: 55a5414d571b99443b7effd91fe65982, type: 2}

@@ -10,10 +10,10 @@ public class ShopLogic : MonoBehaviour
     public TMP_Text cashText;
     public TMP_Text cashDesc;
     public int cash;
-    List<int> weapons = new List<int>(); 
+    List<int> weapons;
     public ShopLogic()
     {
-        
+        weapons = new List<int>();
     }
     void Start()
     {
@@ -41,6 +41,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 2;
                             weapons.Add(weaponDigit);
+                            Debug.Log(weaponDigit);
                             break;
                         }
                         else

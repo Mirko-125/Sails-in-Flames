@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/PreMenu.unity
+- path: Assets/Scenes/Round I.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
