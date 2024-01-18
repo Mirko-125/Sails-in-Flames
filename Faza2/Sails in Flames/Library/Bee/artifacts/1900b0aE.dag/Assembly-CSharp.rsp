@@ -411,10 +411,12 @@
 "Assets/Scripts/ShopLogic.cs"
 "Assets/Scripts/SignalRController.cs"
 "Assets/Scripts/SignalRReciever.cs"
+"Assets/Scripts/ThumbnailInfo.cs"
 "Assets/Scripts/Tile.cs"
 "Assets/Scripts/Turn.cs"
 "Assets/Scripts/TypewriterUI.cs"
 "Assets/Scripts/UnityMainThreadDispatcher.cs"
+"Assets/Scripts/UpdateCash.cs"
 -langversion:9.0
 
 /deterministic

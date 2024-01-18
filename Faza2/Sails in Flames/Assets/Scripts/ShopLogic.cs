@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class ShopLogic : MonoBehaviour
 {
+    int index = 0;
+    public Image[] slots;
+    public Sprite[] sprites;
     public TMP_Text cashText;
     public TMP_Text cashDesc;
     public int cash;
@@ -18,11 +21,33 @@ public class ShopLogic : MonoBehaviour
     void Start()
     {
         cash=15;
+
+    }
+
+    void Update()
+    {
+        if (load)
+        {
+            UpdateCash();
+            load = false;
+        }
+    }
+
+    public void UpdateCash()
+    {
         if (PlayerPrefs.HasKey("turn"))
             if (PlayerPrefs.GetString("turn") == "2") //get cash
-                cash += 2;
+                {
+                    cash += 2;
+                }
         cashText.text = cash.ToString();
 
+    }
+
+    bool load = false;
+    public void IsLoaded()
+    {
+        load = true;
     }
 
     public string ReturnWeaponList()
@@ -38,10 +63,7 @@ public class ShopLogic : MonoBehaviour
 
         return all;
     }
-    void Update()
-    {
 
-    }
     public IEnumerator ChangeColorAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -60,7 +82,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 2;
                             weapons.Add(weaponDigit);
-                            Debug.Log(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -75,6 +97,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 2;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -89,6 +112,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 4;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -103,6 +127,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 3;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -117,6 +142,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 3;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -131,6 +157,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 7;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -145,6 +172,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 10;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -159,6 +187,7 @@ public class ShopLogic : MonoBehaviour
                         {
                             cash = cash - 7;
                             weapons.Add(weaponDigit);
+                            SendToInventory(weaponDigit);
                             break;
                         }
                         else
@@ -169,6 +198,12 @@ public class ShopLogic : MonoBehaviour
                             break;
                         }
                 }
-            cashText.text = cash.ToString();
+            cashText.text = cash.ToString().Replace('0', 'O');
+    }
+    public void SendToInventory(int value)
+    {
+        slots[index].sprite = sprites[value-1];
+        slots[index].color = new Color32(255, 255, 255, 255);
+        index++;
     }
 }
