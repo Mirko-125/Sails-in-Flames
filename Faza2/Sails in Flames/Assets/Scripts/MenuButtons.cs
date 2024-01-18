@@ -39,14 +39,14 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator _PlayGame(bool foundPlayer)
     {
         yield return new WaitForSeconds(soundFile.length);
-        lobby.SetActive(true);
-        while(!foundPlayer)
+        UnityHub hub = FindFirstObjectByType<UnityHub>();
+
+        if (hub != null)
         {
-            // mora da bude bolje napravljeno
-            Debug.Log("Čeka igrača");
-            foundPlayer = true;
+            hub.LookForGame(PlayerPrefs.GetString("userID"));
+
+            GameObject.Find("WaitingOverlay").GetComponent<NetLoader>().Reveal();
         }
-        SceneManager.LoadScene(2);
     }
 
     public void ConfirmRoundTwo()

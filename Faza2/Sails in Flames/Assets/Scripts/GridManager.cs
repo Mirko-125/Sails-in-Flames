@@ -28,6 +28,31 @@ public class GridManager : MonoBehaviour
         }
         _cam.transform.position = new Vector3((float)(_width) / 2 + 3.5f, (float)_height / 2, _camDistance);
     }
+
+    public void TimeToGo()
+    {
+        UnityHub hub = FindFirstObjectByType<UnityHub>();
+
+        //ShopLogic shop = FindFirstObjectByType<ShopLogic>(); //zameni sa neki boatmanager koji ce prati gde su brodici
+
+        string map = "0000000020+" +
+                     "0022220020+" +
+                     "0000000020+" +
+                     "0000020000+" +
+                     "0000020000+" +
+                     "0000020000+" +
+                     "0000000000+" +
+                     "0020000000+" +
+                     "0020000000+" +
+                     "0000000220";    //OVO JE PLACEHOLDER, OVO CE DA SE RACUNA KROZ DRAGGED BRODOVE POSLE!!!!!!!
+
+        if (hub != null)
+        {
+            hub.AcceptPlacement(PlayerPrefs.GetString("userID"), map);
+
+            GameObject.Find("WaitingOverlay").GetComponent<NetLoader>().Reveal();
+        }
+    }
  
     void GenerateGrid(bool friend) 
     {

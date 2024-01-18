@@ -32,6 +32,14 @@ public class typewriterUI : MonoBehaviour
 		if (_tmpProText != null)
 		{
 			writer = _tmpProText.text;
+
+			if(PlayerPrefs.HasKey("weapon"))
+			{
+				int choice = int.Parse(PlayerPrefs.GetString("weapon"));
+				string newLabel = ((Weapon)choice).ToString();
+				writer = writer.Replace("XYZ", newLabel);
+            }
+
 			_tmpProText.text = "";
 
 			StartCoroutine("TypeWriterTMP");

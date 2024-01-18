@@ -74,6 +74,11 @@ public class UnityHub : MonoBehaviour
     public IEnumerator Disconnect()
     {
         Debug.Log("Ow.");
+
+        //temporary
+        SceneManager.MoveGameObjectToScene(FindFirstObjectByType<UnityHub>().gameObject, SceneManager.GetActiveScene());
+        SceneManager.LoadScene(0);
+
         yield return null;
     }
 
