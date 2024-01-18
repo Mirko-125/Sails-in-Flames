@@ -920,6 +920,7 @@ MonoBehaviour:
   intro: {fileID: 1510264091}
   setup: {fileID: 326410751}
   title: {fileID: 159189080}
+  cnObj: {fileID: 4211826576225904059, guid: 0e630d8b886d38d46bcd32af5650b8f1, type: 3}
 --- !u!1 &839088466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,9 +1003,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 326410752}
-        m_TargetAssemblyTypeName: BackButtons, Assembly-CSharp
-        m_MethodName: GoBackToMenu
+      - m_Target: {fileID: 1423706790}
+        m_TargetAssemblyTypeName: PreMenuSetup, Assembly-CSharp
+        m_MethodName: AttemptConnection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1740,6 +1741,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61782ccc6c9b32c4ea576ae8fad6ad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1448011726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1448011727}
+  - component: {fileID: 1448011728}
+  m_Layer: 0
+  m_Name: UnityMainThreadDispatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1448011727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448011726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1448011728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448011726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fe5c11c6c6f8f4bb841a80a5fe699d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1510264091
@@ -2747,3 +2792,4 @@ SceneRoots:
   - {fileID: 1127163025}
   - {fileID: 992922946}
   - {fileID: 709564663}
+  - {fileID: 1448011727}

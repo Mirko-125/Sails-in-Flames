@@ -18,6 +18,25 @@ public class ShopLogic : MonoBehaviour
     void Start()
     {
         cash=15;
+        if (PlayerPrefs.HasKey("turn"))
+            if (PlayerPrefs.GetString("turn") == "2") //get cash
+                cash += 2;
+        cashText.text = cash.ToString();
+
+    }
+
+    public string ReturnWeaponList()
+    {
+        string all = "";
+
+        for (int i = 0; i < weapons.Count; i++)
+        {
+            all += weapons[i].ToString() + " ";
+        }
+
+        all = all.Substring(0, all.Length - 1);
+
+        return all;
     }
     void Update()
     {

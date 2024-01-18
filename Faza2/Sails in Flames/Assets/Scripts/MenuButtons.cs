@@ -59,7 +59,23 @@ public class MenuButtons : MonoBehaviour
     private IEnumerator _ConfirmRoundTwo()
     {
         yield return new WaitForSeconds(soundFile.length);
-        SceneManager.LoadScene(3);
+        //SceneManager.LoadScene(3);
+
+        UnityHub hub = FindFirstObjectByType<UnityHub>();
+
+        ShopLogic shop = FindFirstObjectByType<ShopLogic>();
+
+        if (hub != null && shop != null)
+        {
+            hub.AcceptWeapons(PlayerPrefs.GetString("userID"), shop.ReturnWeaponList());
+
+            GameObject.Find("StartRoundTwo").GetComponent<Button>().interactable = false;
+            GameObject.Find("StartRoundTwo").GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+
+            GameObject.Find("WaitingOverlay").GetComponent<NetLoader>().Reveal();
+        }
+
+        
     }
 
     public void GameSettings()

@@ -7,7 +7,8 @@ public class Intro : MonoBehaviour
     [SerializeField] private GameObject intro;
     [SerializeField] private GameObject setup; 
     [SerializeField] private GameObject title;
-    
+    [SerializeField] private GameObject cnObj;
+
     public IEnumerator Setup(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -26,6 +27,12 @@ public class Intro : MonoBehaviour
     {
         intro.SetActive(true);
         StartCoroutine(Title(1f));
+        UnityHub conn = FindFirstObjectByType<UnityHub>();
+        if (conn == null)
+        {
+            Instantiate(cnObj);
+            DontDestroyOnLoad(cnObj);
+        }
     }
 
     void Update()

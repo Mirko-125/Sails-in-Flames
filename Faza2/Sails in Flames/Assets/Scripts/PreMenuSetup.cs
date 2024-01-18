@@ -12,7 +12,7 @@ public class PreMenuSetup : MonoBehaviour
     void Start()
     {
         serverToggle = true;
-        serverAddress = "204.216.216.204:7333";
+        serverAddress = "http://204.216.216.204:7333";
     }
 
     void Update()
@@ -25,20 +25,32 @@ public class PreMenuSetup : MonoBehaviour
         serverToggle = !serverToggle;
         if(!serverToggle)
         {// localhost
-            serverAddress = "localhost:5165";
+            serverAddress = "http://localhost:5165/gameHub";
             Debug.Log(serverAddress);
             serverText.text = "LocalHost";
         }
         else
         {// sailserver
-            serverAddress = "204.216.216.204:7333";
+            serverAddress = "http://204.216.216.204:7333/gameHub";
             Debug.Log(serverAddress);
             serverText.text = "SailServer";
         }
+        PlayerPrefs.DeleteKey("userID");
     }
     public void Submit(TMP_InputField field)
     {
         playerAlias = field.text;
         Debug.Log(playerAlias);
+        PlayerPrefs.DeleteKey("userID");
+    }
+
+    public void AttemptConnection()
+    {
+        UnityHub conn = FindFirstObjectByType<UnityHub>();
+        if (conn != null)
+        {
+            conn.username = playerAlias;
+            conn.Initialise(serverAddress);
+        }
     }
 }
