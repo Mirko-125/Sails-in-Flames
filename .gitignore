@@ -2,13 +2,13 @@
     #
     # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
     #
-    /Faza2/Sails in Flames/[Ll]ibrary/
-    /Faza2/Sails in Flames/[Tt]emp/
-    /Faza2/Sails in Flames/[Oo]bj/
-    /Faza2/Sails in Flames/[Bb]uild/
-    /Faza2/Sails in Flames/[Bb]uilds/
-    /Faza2/Sails in Flames/[Ll]ogs/
-    /Faza2/Sails in Flames/[Mm]emoryCaptures/
+    /Faza2/Sails\ in\ Flames/[Ll]ibrary/
+    /Faza2/Sails\ in\ Flames/[Tt]emp/
+    /Faza2/Sails\ in\ Flames/[Oo]bj/
+    /Faza2/Sails\ in\ Flames/[Bb]uild/
+    /Faza2/Sails\ in\ Flames/[Bb]uilds/
+    /Faza2/Sails\ in\ Flames/[Ll]ogs/
+    /Faza2/Sails\ in\ Flames/[Mm]emoryCaptures/
      
     # Asset meta data should only be ignored when the corresponding asset is also ignored
     !/Faza2/Sails in Flames/[Aa]ssets/**/*.meta
