@@ -41,8 +41,12 @@ public class MenuButtons : MonoBehaviour
         yield return new WaitForSeconds(soundFile.length);
         UnityHub hub = FindFirstObjectByType<UnityHub>();
 
+        Debug.Log("Let's go!");
+
         if (hub != null)
         {
+            Debug.Log("Not null!");
+
             hub.LookForGame(PlayerPrefs.GetString("userID"));
 
             GameObject.Find("WaitingOverlay").GetComponent<NetLoader>().Reveal();

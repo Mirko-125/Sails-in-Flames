@@ -30,8 +30,8 @@ public class Intro : MonoBehaviour
         UnityHub conn = FindFirstObjectByType<UnityHub>();
         if (conn == null)
         {
-            Instantiate(cnObj);
-            DontDestroyOnLoad(cnObj);
+            GameObject instance = Instantiate(cnObj);
+            DontDestroyOnLoad(instance);
         }
     }
 
