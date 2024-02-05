@@ -21,15 +21,15 @@ namespace SailsServer.Database
         {
             using var connection = new SqliteConnection(databaseConfig.Name);
 
-            await connection.ExecuteAsync("INSERT INTO Igre (GameID, BoardState1, BoardState2, GameState, Player1, Player2)" +
-                "VALUES (@GameID, @BoardState1, @BoardState2, @GameState, @Player1, @Player2);", igra);
+            await connection.ExecuteAsync("INSERT INTO Igre (GameID, Weapon1, Weapon2, BoardState1, BoardState2, GameState, Player1, Player2)" +
+                "VALUES (@GameID, @Weapon1, @Weapon2, @BoardState1, @BoardState2, @GameState, @Player1, @Player2);", igra);
         }
 
         public async Task Update(Igre igra)
         {
             using var connection = new SqliteConnection(databaseConfig.Name);
 
-            await connection.ExecuteAsync("UPDATE Igre SET BoardState1 = @BoardState1, BoardState2 = @BoardState2, GameState = @GameState, Player1 = @Player1, Player2 = @Player2 " +
+            await connection.ExecuteAsync("UPDATE Igre SET Weapon1 = @Weapon1, Weapon2 = @Weapon2, BoardState1 = @BoardState1, BoardState2 = @BoardState2, GameState = @GameState, Player1 = @Player1, Player2 = @Player2 " +
                 "WHERE GameID = @GameID;", igra);
         }
     }

@@ -1805,10 +1805,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Made by Mirko Bojanic and Bogdan Micic
+  m_text: Made by Mirko Bojanic and Bogdan Micic / Boggy Games
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: df956fd0265215246a451676758f1d52, type: 2}
-  m_sharedMaterial: {fileID: 6062706279886797074, guid: df956fd0265215246a451676758f1d52, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4166c2c38c7d9c14c91d219d33410714, type: 2}
+  m_sharedMaterial: {fileID: 2395297710419851587, guid: 4166c2c38c7d9c14c91d219d33410714, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

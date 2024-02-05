@@ -40,8 +40,7 @@ public class BackButtons : MonoBehaviour
     }
     public void LeaveGameMenu()
     {
-        question.SetActive(true);
-        mainMenuButton.SetActive(false);
+        GoBackToMenu();
     }
 
     public void ResumeGame()

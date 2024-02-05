@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SailsServer.Controllers
@@ -9,7 +9,7 @@ namespace SailsServer.Controllers
 
         public GameController()
         {
-            _hubContext = GlobalHost.ConnectionManager.GetHubContext<GameHub>();
+            
         }
 
         // Your existing API methods
@@ -17,7 +17,7 @@ namespace SailsServer.Controllers
         // Example of sending game updates to clients
         private void SendGameUpdateToClients(string message)
         {
-            _hubContext.Clients.All.updateGame(message);
+            //_hubContext.Clients.All.updateGame(message);
         }
     }
 }

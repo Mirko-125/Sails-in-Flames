@@ -10,16 +10,21 @@ public class GridManager : MonoBehaviour
     
     [SerializeField] private int _n; 
  
-    [SerializeField] private Tile _tilePrefab;
- 
+    [SerializeField] private GameObject _tilePrefab;
+
+    [SerializeField] private GameObject friendlyHolder;
+    [SerializeField] private GameObject enemyHolder;
+
     [SerializeField] private Transform _cam;
     [SerializeField] private float _camDistance;
  
-    private Dictionary<Vector2, Tile> _tiles;
+    private Dictionary<int, TileUI> _tiles;
     int ennemyTerrain;
  
     void Start() 
     {
+        _tiles = new Dictionary<int, TileUI>();
+
         GenerateGrid(true);
         if(SceneManager.GetActiveScene().buildIndex == 4)
         {
@@ -32,26 +37,33 @@ public class GridManager : MonoBehaviour
     {
         UnityHub hub = FindFirstObjectByType<UnityHub>();
 
-        //ShopLogic shop = FindFirstObjectByType<ShopLogic>(); //zameni sa neki boatmanager koji ce prati gde su brodici
+        DragManager shop = FindFirstObjectByType<DragManager>();
 
-        string map = "0000000020+" +
-                     "0022220020+" +
-                     "0000000020+" +
-                     "0000020000+" +
-                     "0000020000+" +
-                     "0000020000+" +
-                     "0000000000+" +
-                     "0020000000+" +
-                     "0020000000+" +
-                     "0000000220";    //OVO JE PLACEHOLDER, OVO CE DA SE RACUNA KROZ DRAGGED BRODOVE POSLE!!!!!!!
+        string map = shop.ReturnFilledMap();
 
-        if (hub != null)
+        print(map);
+
+        int count = 0;
+
+        for (int i = 0; i < map.Length; i++)
+        {
+            if (map[i] == '2')
+            {
+                count++;
+            }
+        }
+
+        print(count);
+
+        if (hub != null && shop != null && count == 18)
         {
             hub.AcceptPlacement(PlayerPrefs.GetString("userID"), map);
 
             GameObject.Find("WaitingOverlay").GetComponent<NetLoader>().Reveal();
         }
     }
+
+    //tile/grid factory metoda
  
     void GenerateGrid(bool friend) 
     {
@@ -63,22 +75,32 @@ public class GridManager : MonoBehaviour
         {
             ennemyTerrain = 0;
         }
-        _tiles = new Dictionary<Vector2, Tile>();
+        
         for (int x = 0; x < _n; x++) 
         {
             for (int y = 0; y < _n; y++) 
             {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x + ennemyTerrain, y), Quaternion.identity);
+                GameObject spawnedTile;
+                if (friend)
+                {
+                    spawnedTile = Instantiate(_tilePrefab, friendlyHolder.transform);
+                }
+                else
+                {
+                    spawnedTile = Instantiate(_tilePrefab, enemyHolder.transform);
+                }
+                spawnedTile.transform.localPosition = (new Vector3(x * 32 - 160, 160 - y * 32, 0));
                 spawnedTile.name = $"Tile {_n-y-1} {x}";
  
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-                spawnedTile.Init(friend, isOffset, _n-y-1, x);
-                _tiles[new Vector2(x + ennemyTerrain, y)] = spawnedTile;
+                spawnedTile.GetComponent<TileUI>().Init(friend, isOffset, x, y);
+                _tiles.Add((x + ennemyTerrain) * 100 + y, spawnedTile.GetComponent<TileUI>());
             }
         }
     }
 
-    public Tile GetTileAtPosition(Vector2 pos) {
+    public TileUI GetTileAtPosition(int pos) {
+        //TileUI tile;
         if (_tiles.TryGetValue(pos, out var tile)) return tile;
         return null;
     }

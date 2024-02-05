@@ -55,6 +55,9 @@ public class UnityHub : MonoBehaviour
     public IEnumerator UpdateGame(Igre gameState)
     {
         Debug.Log("Updating game.");
+
+        FindFirstObjectByType<FightManager>().UpdateFight(gameState);
+
         yield return null;
     }
 
@@ -62,7 +65,15 @@ public class UnityHub : MonoBehaviour
     {
         Debug.Log("Reconnecting to game.");
 
-        FindFirstObjectByType<UnityHub>().gameStorage = gameState;
+        PlayerPrefs.SetString("Weapon1", gameState.Weapon1);
+        PlayerPrefs.SetString("Weapon2", gameState.Weapon2);
+        PlayerPrefs.SetString("BoardState1", gameState.BoardState1);
+        PlayerPrefs.SetString("BoardState2", gameState.BoardState2);
+        PlayerPrefs.SetString("GameID", gameState.GameID);
+        PlayerPrefs.SetString("Player1", gameState.Player1);
+        PlayerPrefs.SetString("Player2", gameState.Player2);
+        PlayerPrefs.SetString("GameState", gameState.GameState);
+        //FindFirstObjectByType<UnityHub>().gameStorage = gameState;
         PlayerPrefs.SetString("turn", md.YourTurn);
         PlayerPrefs.SetString("opponent", md.OpponentName);
 
@@ -109,7 +120,16 @@ public class UnityHub : MonoBehaviour
     {
         Debug.Log("Starting game.");
 
-        FindFirstObjectByType<UnityHub>().gameStorage = gameState;
+        //FindFirstObjectByType<UnityHub>().gameStorage = gameState;
+
+        PlayerPrefs.SetString("Weapon1", gameState.Weapon1);
+        PlayerPrefs.SetString("Weapon2", gameState.Weapon2);
+        PlayerPrefs.SetString("BoardState1", gameState.BoardState1);
+        PlayerPrefs.SetString("BoardState2", gameState.BoardState2);
+        PlayerPrefs.SetString("GameID", gameState.GameID);
+        PlayerPrefs.SetString("Player1", gameState.Player1);
+        PlayerPrefs.SetString("Player2", gameState.Player2);
+        PlayerPrefs.SetString("GameState", gameState.GameState);
 
         SceneManager.LoadScene(4);
 
@@ -119,6 +139,9 @@ public class UnityHub : MonoBehaviour
     public IEnumerator EndGame(int res)
     {
         Debug.Log("Ending game.");
+
+        FindFirstObjectByType<FightManager>().SomeoneWon(res.ToString());
+
         yield return null;
     }
 

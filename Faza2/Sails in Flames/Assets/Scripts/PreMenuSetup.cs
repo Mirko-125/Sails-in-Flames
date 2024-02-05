@@ -12,7 +12,8 @@ public class PreMenuSetup : MonoBehaviour
     void Start()
     {
         serverToggle = true;
-        serverAddress = "http://204.216.216.204:7333";
+        serverAddress = "http://204.216.216.204:7333/gameHub";
+        playerAlias = "SailSailor";
     }
 
     void Update()
@@ -50,6 +51,7 @@ public class PreMenuSetup : MonoBehaviour
         if (conn != null)
         {
             conn.username = playerAlias;
+            PlayerPrefs.SetString("player", playerAlias);
             conn.Initialise(serverAddress);
         }
     }

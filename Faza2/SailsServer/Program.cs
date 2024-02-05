@@ -1,9 +1,10 @@
 using SailsServer.Database;
-
+using SailsServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 
@@ -24,6 +25,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<GameHub>("/gameHub");
 
 app.Services.GetService<IDatabaseBootstrap>()!.Setup();
 
